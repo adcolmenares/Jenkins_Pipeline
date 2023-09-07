@@ -46,20 +46,22 @@ pipeline {
         }
     }
 
-    post {
+     post {
         success {
-            // Send success notification email with logs
-            mail to: 'colmealyss09@gmail.com',
-            subject: 'Build Status',
-            body: 'Build was successful.',
-            attachLog: true
+            // Send success notification email with logs as attachment
+            emailext subject: 'Build Status',
+                body: 'Build was successful.',
+                to: 'colmealyss09@gmail.com',
+                attachLog: true 
+            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
         }
         failure {
-            // Send failure notification email with logs
-            mail to: 'colmealyss09@gmail.com',
-            subject: 'Build Status',
-            body: 'Build was unsuccessful.',
-            attachLog: true
+            // Send failure notification email with logs as attachment
+            emailext subject: 'Build Status',
+                body: 'Build was unsuccessful.',
+                to: 'colmealyss09@gmail.com',
+                attachLog: true 
+            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
         }
     }
 }
