@@ -51,15 +51,15 @@ pipeline {
             // Send success notification email with logs
             mail to: 'colmealyss09@gmail.com',
             subject: 'Build Status',
-            body: 'Build was successful.'
-            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            body: 'Build was successful.',
+            attachLog: true
         }
         failure {
             // Send failure notification email with logs
             mail to: 'colmealyss09@gmail.com',
             subject: 'Build Status',
-            body: 'Build was unsuccessful.'
-            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            body: 'Build was unsuccessful.',
+            attachLog: true
         }
     }
 }
