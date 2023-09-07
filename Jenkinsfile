@@ -53,7 +53,6 @@ pipeline {
                 body: 'Build was successful.',
                 to: 'colmealyss09@gmail.com',
                 attachLog: true )
-            archiveArtifacts artifacts: '**', allowEmptyArchive: true
         }
         failure {
             // Send failure notification email with logs as attachment
@@ -61,7 +60,6 @@ pipeline {
                 body: 'Build was unsuccessful.',
                 to: 'colmealyss09@gmail.com',
                 attachLog: true )
-            archiveArtifacts artifacts: '**', allowEmptyArchive: true
         }
     }
 }
