@@ -49,7 +49,7 @@ pipeline {
      post {
         success {
             // Send success notification email with logs as attachment
-            mail(subject: 'Build Status',
+            emailext (subject: 'Build Status',
                 body: 'Build was successful.',
                 to: 'colmealyss09@gmail.com',
                 attachLog: true )
@@ -57,7 +57,7 @@ pipeline {
         }
         failure {
             // Send failure notification email with logs as attachment
-            mail(subject: 'Build Status',
+            emailext (subject: 'Build Status',
                 body: 'Build was unsuccessful.',
                 to: 'colmealyss09@gmail.com',
                 attachLog: true )
