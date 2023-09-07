@@ -49,16 +49,16 @@ pipeline {
     post {
         success {
             // Send success notification email with logs
-            emailext subject: 'Pipeline Successful',
-                body: 'GitHub Pipeline has successfully completed all stages.',
-                to: 'colmealyss09@gmail.com'
+            mail to: 'colmealyss09@gmail.com',
+            subject: 'Build Status',
+            body: 'Build was successful.'
             archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
         }
         failure {
             // Send failure notification email with logs
-            emailext subject: 'Pipeline Failed',
-                body: 'GitHub Pipeline has failed. Please investigate.',
-                to: 'colmealyss09@gmail.com'
+            mail to: 'colmealyss09@gmail.com',
+            subject: 'Build Status',
+            body: 'Build was unsuccessful.'
             archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
         }
     }
