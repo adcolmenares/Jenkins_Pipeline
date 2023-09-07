@@ -18,7 +18,6 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 echo "Analyzing code using SonarQube..."
-                }
             }
         }
 
@@ -30,7 +29,7 @@ pipeline {
 
         stage('Deploy to Staging') {
             steps {
-                echo "Deploying to staging server AWS EC2"
+                echo "Deploying to staging server AWS EC2..."
             }
         }
 
@@ -42,7 +41,7 @@ pipeline {
 
         stage('Deploy to Production') {
             steps {
-                echo "Deploying to production server AWS EC2"
+                echo "Deploying to production server AWS EC2..."
             }
         }
     }
@@ -63,4 +62,4 @@ pipeline {
             archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
         }
     }
-
+}
